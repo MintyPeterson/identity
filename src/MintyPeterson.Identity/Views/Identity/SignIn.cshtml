@@ -1,0 +1,37 @@
+﻿@using MintyPeterson.Identity.Models
+@using MintyPeterson.Identity.Resources
+
+@model IdentitySignInViewModel
+
+@{
+  ViewBag.Title = Strings.SignIn;
+}
+
+<div class="container my-3">
+
+  <h1>@Strings.SignIn</h1>
+
+  <p class="lead">@Strings.SignInPageLead</p>
+
+  <form asp-route="SignIn">
+
+    <validation-error-summary class="mb-4 p-3 pb-1 bg-danger text-white">
+      <p>@Strings.ValidationSummaryLead</p>
+    </validation-error-summary>
+
+    <div class="mb-3">
+      <label asp-for="Email" class="form-label">@Strings.Email</label>
+      <input type="email" asp-for="Email" class="form-control" autocomplete="email" />
+    </div>
+
+    <div class="mb-5">
+      <label asp-for="Password" class="form-label">@Strings.Password</label>
+      <input type="password" asp-for="Password" class="form-control" autocomplete="current-password" />
+    </div>
+
+    <button type="submit" name="Action" value="SignIn" class="btn btn-primary">@Strings.SignIn</button>
+    <button type="submit" name="Action" value="Cancel" class="btn btn-link">@Strings.Cancel</button>
+
+  </form>
+
+</div>

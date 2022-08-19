@@ -1,0 +1,23 @@
+﻿@using MintyPeterson.Identity.Models
+@using MintyPeterson.Identity.Resources
+
+@model IdentitySignOutViewModel
+
+@{
+  ViewBag.Title = Strings.SignOut;
+}
+
+<div class="container my-3">
+
+  <h1>@Strings.SignOut</h1>
+
+  <p class="lead mb-4">@Strings.SignOutPageLead</p>
+
+  <form asp-route="SignOut">
+
+    <input type="hidden" asp-for="LogoutId" />
+    <button type="submit" class="btn btn-primary">@Strings.SignOut</button>
+
+  </form>
+
+</div>

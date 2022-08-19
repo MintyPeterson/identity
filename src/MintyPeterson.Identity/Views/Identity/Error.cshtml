@@ -1,0 +1,21 @@
+﻿@using MintyPeterson.Identity.Models
+@using MintyPeterson.Identity.Resources
+
+@model IdentityErrorViewModel
+
+@{
+  ViewBag.Title = Strings.Error;
+}
+
+<div class="container my-3">
+
+  <h1>@Strings.Error</h1>
+
+  <p class="lead mb-1">@Strings.ErrorIdentifyingClient</p>
+
+  @if (Model.Error != null)
+  {
+    <p><small class="text-black-50">(ID: @Model.Error.RequestId)</small></p>
+  }
+
+</div>

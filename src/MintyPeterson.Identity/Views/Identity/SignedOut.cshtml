@@ -1,0 +1,37 @@
+﻿@using MintyPeterson.Identity.Models
+@using MintyPeterson.Identity.Resources
+
+@model IdentitySignedOutViewModel
+
+@{
+  ViewBag.Title = Strings.SignedOut;
+}
+
+<div class="container my-3">
+
+  <h1>@Strings.SignedOut</h1>
+
+  <p class="lead mb-4">@Strings.SignedOutPageLead</p>
+
+  @if (!string.IsNullOrWhiteSpace(Model.RedirectUrl))
+  {
+    <a class="btn btn-primary redirect-url" href="@Model.RedirectUrl">
+      @Strings.ReturnToApplication
+    </a>
+  }
+
+</div>
+
+@if (!string.IsNullOrWhiteSpace(Model.SignOutFrameUrl))
+{
+  <iframe title="@Strings.SignedOut" width="0" height="0" src="@Model.SignOutFrameUrl"></iframe>
+}
+
+<script>
+  window.addEventListener("load", function () {
+    var redirect = document.querySelector("a.redirect-url");
+    if (redirect) {
+      window.location = redirect.href;
+    }
+  });
+</script>

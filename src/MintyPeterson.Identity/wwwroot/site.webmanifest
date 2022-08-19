@@ -1,0 +1,7 @@
+﻿{
+  "name": "Identity Service",
+  "short_name": "Identity",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

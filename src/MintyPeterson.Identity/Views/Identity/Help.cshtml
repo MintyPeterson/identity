@@ -1,0 +1,56 @@
+﻿@using MintyPeterson.Identity.Models
+@using MintyPeterson.Identity.Resources
+
+@model IdentityHelpModel
+
+@{
+  ViewBag.Title = "Help";
+}
+
+<div class="container my-3">
+
+  <h1>@Strings.IdentityService</h1>
+
+  <p class="lead mb-4">
+    @Html.Raw(String.Format(Strings.HelpPageLead, String.Format("<a href=\"https://github.com/mintypeterson\">{0}</a>", Strings.HelpLink)))
+  </p>
+
+  @if (Model?.IsAuthenticated == true)
+  {
+    <div class="bg-light p-3">
+
+      <h2>@Strings.SignedIn</h2>
+
+      <p>@Strings.HelpPageSignedInLead</p>
+
+      @if (Model.Claims != null)
+      {
+        <table class="table table-sm table-borderless mb-4">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Type</th>
+              <th scope="col">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (var claim in Model.Claims)
+            {
+              <tr>
+                <th scope="row">@claim.Type</th>
+                <td>@claim.Value</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      }
+
+      <a class="btn btn-primary" href="@Url.Action("SignOut")">@Strings.SignOut</a>
+
+    </div>
+  }
+  else
+  {
+    <a class="btn btn-primary" href="@Url.Action("SignIn")">@Strings.SignIn</a>
+  }
+
+</div>
