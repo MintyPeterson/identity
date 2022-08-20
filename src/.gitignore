@@ -12,6 +12,9 @@
 [Aa]pp[Ss]ettings.[Dd]evelopment.json
 [Tt]emp[Kk]ey.rsa
 
+# Production configuration files
+[Aa]pp[Ss]ettings.[Pp]roduction.json
+
 # User-specific files
 *.suo
 *.user
@@ -154,8 +157,9 @@ publish/
 *.azurePubxml
 # TODO: Comment the next line if you want to checkin your web deploy settings
 # but database connection strings (with potential passwords) will be unencrypted
-#*.pubxml
+*.pubxml
 *.publishproj
+profile.arm.json
 
 # Microsoft Azure Web App publish settings. Comment the next line if you want to
 # checkin your Azure Web App publish settings, but sensitive information contained

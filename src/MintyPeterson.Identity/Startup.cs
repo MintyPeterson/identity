@@ -25,12 +25,19 @@ namespace MintyPeterson.Identity
     /// </remarks>
     public void ConfigureServices(IServiceCollection services)
     {
+      var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+      if (string.IsNullOrWhiteSpace(environment))
+      {
+        environment = "Development";
+      }
+
       var configuration =
         new ConfigurationBuilder()
           .AddJsonFile(
             "AppSettings.json", optional: true, reloadOnChange: true)
           .AddJsonFile(
-            "AppSettings.Development.json",
+            $"AppSettings.{environment}.json",
             optional: true,
             reloadOnChange: true)
           .Build();
