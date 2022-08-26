@@ -6,6 +6,7 @@ namespace MintyPeterson.Identity
 {
   using System.Globalization;
   using System.Reflection;
+  using FluentValidation;
   using FluentValidation.AspNetCore;
   using Microsoft.AspNetCore.Identity;
   using Microsoft.AspNetCore.Localization;
@@ -43,14 +44,12 @@ namespace MintyPeterson.Identity
           .Build();
 
       services.AddLocalization();
+      services.AddMvc();
 
       services
-        .AddMvc()
-        .AddFluentValidation(
-          options =>
-          {
-            options.RegisterValidatorsFromAssemblyContaining<Startup>();
-          });
+        .AddFluentValidationAutoValidation()
+        .AddFluentValidationClientsideAdapters()
+        .AddValidatorsFromAssemblyContaining(typeof(Startup));
 
       services.AddDbContext<DefaultIdentityDbContext>(
         options =>
