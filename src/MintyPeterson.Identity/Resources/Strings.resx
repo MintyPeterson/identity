@@ -173,6 +173,12 @@
     <value>The password must be at least {0} characters.</value>
     <comment>The placeholder contains the number of characters.</comment>
   </data>
+  <data name="Redirecting" xml:space="preserve">
+    <value>Redirecting...</value>
+  </data>
+  <data name="RedirectPageLead" xml:space="preserve">
+    <value>You are now being returned to the application.</value>
+  </data>
   <data name="ReturnToApplication" xml:space="preserve">
     <value>Return to the application</value>
   </data>

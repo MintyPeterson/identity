@@ -1,0 +1,29 @@
+﻿@using MintyPeterson.Identity.Models
+@using MintyPeterson.Identity.Resources
+
+@model IdentityRedirectViewModel
+
+@{
+  ViewBag.Title = Strings.Redirecting;
+}
+
+<div class="container my-3">
+
+  <h1>@Strings.Redirecting</h1>
+
+  <p class="lead mb-4">@Strings.RedirectPageLead</p>
+
+  <a class="btn btn-primary redirect-url" href="@Model.RedirectUrl">
+    @Strings.ReturnToApplication
+  </a>
+
+</div>
+
+<script>
+  window.addEventListener("load", function () {
+    var redirect = document.querySelector("a.redirect-url");
+    if (redirect) {
+      window.location = redirect.href;
+    }
+  });
+</script>

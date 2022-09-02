@@ -223,6 +223,24 @@ namespace MintyPeterson.Identity.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Redirecting....
+        /// </summary>
+        public static string Redirecting {
+            get {
+                return ResourceManager.GetString("Redirecting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are now being returned to the application..
+        /// </summary>
+        public static string RedirectPageLead {
+            get {
+                return ResourceManager.GetString("RedirectPageLead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Return to the application.
         /// </summary>
         public static string ReturnToApplication {
