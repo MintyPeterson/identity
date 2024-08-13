@@ -27,9 +27,9 @@ namespace MintyPeterson.Identity.Controllers
     private readonly IIdentityServerInteractionService interactionService;
 
     /// <summary>
-    /// Stores the <see cref="IdentityServerTools"/> dependency.
+    /// Stores the <see cref="IIdentityServerTools"/> dependency.
     /// </summary>
-    private readonly IdentityServerTools identityServerTools;
+    private readonly IIdentityServerTools identityServerTools;
 
     /// <summary>
     /// Stores the <see cref="IClientStore"/> dependency.
@@ -58,14 +58,14 @@ namespace MintyPeterson.Identity.Controllers
     /// <param name="clientStore">A <see cref="IClientStore"/>.</param>
     /// <param name="signInManager">A <see cref="SignInManager{DefaultIdentityUser}"/>.</param>
     /// <param name="userManager">A <see cref="UserManager{DefaultIdentityUser}"/>.</param>
-    /// <param name="identityServerTools">An <see cref="IdentityServerTools"/>.</param>
+    /// <param name="identityServerTools">An <see cref="IIdentityServerTools"/>.</param>
     /// <param name="loggerService">An <see cref="ILogger"/>.</param>
     public IdentityController(
       IIdentityServerInteractionService interactionService,
       IClientStore clientStore,
       SignInManager<DefaultIdentityUser> signInManager,
       UserManager<DefaultIdentityUser> userManager,
-      IdentityServerTools identityServerTools,
+      IIdentityServerTools identityServerTools,
       ILogger<IdentityController> loggerService)
     {
       this.interactionService = interactionService;
@@ -172,7 +172,7 @@ namespace MintyPeterson.Identity.Controllers
       {
         var result =
           await this.signInManager.PasswordSignInAsync(
-            model.Email, model.Password, true, false);
+            model.Email!, model.Password!, true, false);
 
         if (result.Succeeded)
         {

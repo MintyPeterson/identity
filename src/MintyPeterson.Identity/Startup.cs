@@ -62,7 +62,7 @@ namespace MintyPeterson.Identity
         .AddIdentity<DefaultIdentityUser, IdentityRole>(
           options =>
           {
-            options.User.AllowedUserNameCharacters = null;
+            options.User.AllowedUserNameCharacters = string.Empty;
             options.ClaimsIdentity.SecurityStampClaimType = "security_stamp";
           })
         .AddErrorDescriber<LocalizedIdentityErrorDescriber>()
@@ -81,6 +81,8 @@ namespace MintyPeterson.Identity
             options.UserInteraction.LoginUrl = "/SignIn";
             options.UserInteraction.LogoutUrl = "/SignOut";
             options.UserInteraction.ErrorUrl = "/Error";
+
+            options.KeyManagement.Enabled = false;
           })
         .AddConfigurationStore(
           options =>
